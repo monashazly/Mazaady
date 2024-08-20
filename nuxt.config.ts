@@ -10,6 +10,6 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@nuxtjs/tailwindcss"],
-  css:['~/assets/main.css']
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/image"],
+  css:['~/assets/main.css'],
 })
