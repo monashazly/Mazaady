@@ -13,7 +13,8 @@
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "nuxt": "^3.12.4",
-    "vue": "latest"
+    "vue": "latest",
+    "vuetify-nuxt-module": "^0.17.1"
   },
   "devDependencies": {
     "typescript": "^5.5.4",

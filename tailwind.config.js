@@ -9,7 +9,13 @@ module.exports = {
     "./error.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        primary:"#D20653",
+        secondary : "#ff9320",
+        "secondary-low" : "#fff5e9"
+      },
+    },
     fontFamily: {
         nunito: ['Nunito', 'sans-serif'],
       },

@@ -52,6 +52,7 @@
             EN
         </div>
     </div>
+    <slot/>
 </template>
 <style scoped>
 .active-link {
