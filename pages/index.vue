@@ -89,8 +89,9 @@ const products = ref([
 </script>
 
 <template>
-    <div class="tw-px-16 tw-py-6 tw-flex tw-justify-between">
-        <div class="tw-w-[35%]">
+    <div class=" tw-flex "
+    :class="$vuetify.display.smAndDown ? ' tw-flex-col tw-p-5' : 'tw-justify-between tw-px-16 tw-py-6'" >
+        <div class="" :class="$vuetify.display.smAndDown ? ' tw-w-full tw-mb-3' : 'tw-w-[35%]'">
             <div class=" tw-flex tw-flex-col tw-gap-2 tw-bg-white tw-rounded-2xl  tw-p-4">
                 <NuxtImg src="/profile.png" width="70" />
                 <h5>Hala Ahmed</h5>
@@ -140,7 +141,8 @@ const products = ref([
                 </div>
             </div>
         </div>
-        <div class=" tw-bg-white tw-rounded-2xl tw-w-[63%] tw-p-6">
+        <div class=" tw-bg-white tw-rounded-2xl  tw-p-6" 
+        :class="$vuetify.display.smAndDown ? ' tw-w-full tw-mt-3' : 'tw-w-[63%]'">
             <div class=" tw-flex tw-justify-between">
                 <div class=" tw-flex tw-justify-between tw-gap-3 tw-items-center">
                     <Chip @click="tab = 'products'" :bordered="true" :disabled="tab !== 'products'">
@@ -159,7 +161,7 @@ const products = ref([
                         </template>
                     </Chip>
                 </div>
-                <Btn title="Add New Product" />
+                <Btn title="Add New Product" v-if="$vuetify.display.smAndUp" />
             </div>
             <v-tabs-window class="py-4" v-model="tab">
                 <v-tabs-window-item value="products">
