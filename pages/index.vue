@@ -35,7 +35,7 @@ const products = ref([
     },
     {
         id: 2,
-        name: 'Six-piece clothing set (blouse - pants - hat and',
+        name: 'Jeep Car, new, used for only one time',
         price: '1000',
         image: '/item2.png',
         days: '2',
@@ -55,14 +55,35 @@ const products = ref([
     },
     {
         id: 4,
-        name: 'Six-piece clothing set (blouse - pants - hat and',
+        name: 'Jeep Car, new, used for only one time',
         price: '1000',
         image: '/item4.png',
         days: '2',
         hours: '10',
         minutes: '20',
         sale:true
-    }
+    },
+    {
+        id: 5,
+        name: 'Six-piece clothing set (blouse - pants - hat and',
+        price: '1000',
+        image: '/item3.png',
+        days: '2',
+        hours: '10',
+        minutes: '20',
+        sale:true
+    },
+    {
+        id: 6,
+        name: 'Six-piece clothing set (blouse - pants - hat and',
+        price: '1000',
+        image: '/item1.png',
+        days: '2',
+        hours: '10',
+        minutes: '20',
+        sale:false
+    },
+
 ])
 
 </script>
@@ -144,7 +165,7 @@ const products = ref([
                 <v-tabs-window-item value="products">
                     <h3 class=" tw-font-extrabold">Products <small class=" tw-text-sm tw-text-slate-400">(12)</small>
                     </h3>
-                    <Product v-for="product in products" :key="product.id" :product="product"/>
+                    <Product class="my-5" v-for="product in products" :key="product.id" :product="product"/>
                 </v-tabs-window-item>
 
                 <v-tabs-window-item value="articles">
