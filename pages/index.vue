@@ -21,6 +21,7 @@ const chipData = ref([
         text: 'Rate'
     }
 ])
+const tab = ref('products')
 
 </script>
 
@@ -29,7 +30,7 @@ const chipData = ref([
         <div class="tw-w-[35%]">
             <div class=" tw-flex tw-flex-col tw-gap-2 tw-bg-white tw-rounded-2xl  tw-p-4">
                 <NuxtImg src="/profile.png" width="70" />
-                <h2>Hala Ahmed</h2>
+                <h5>Hala Ahmed</h5>
                 <small class=" tw-text-slate-600">
                     I am Hala Ahmed, I am the owner of the local brand called Beauty which is for Mackeup and Skin Care.
                 </small>
@@ -51,7 +52,7 @@ const chipData = ref([
             </div>
             <div class=" tw-flex tw-flex-col tw-gap-2 tw-bg-white tw-rounded-2xl tw-p-4 tw-mt-5">
                 <div class="tw-flex tw-justify-between">
-                    <h2>QR Code</h2>
+                    <h5>QR Code</h5>
                     <div class="tw-flex tw-justify-between tw-gap-2 ">
                         <IconsEye />
                         <IconsShare />
@@ -74,11 +75,42 @@ const chipData = ref([
                         <small>Follow Us on Mazaady</small>
                     </div>
                 </div>
-
             </div>
         </div>
-        <div class=" tw-bg-white tw-rounded-2xl tw-w-[63%] tw-p-3">
-            hi2
+        <div class=" tw-bg-white tw-rounded-2xl tw-w-[63%] tw-p-6">
+            <div class=" tw-flex tw-justify-between">
+                <div class=" tw-flex tw-justify-between tw-gap-3 tw-items-center">
+                    <Chip @click="tab = 'products'">
+                        <template #content>
+                            Products
+                        </template>
+                    </Chip>
+                    <Chip @click="tab = 'articles'">
+                        <template #content>
+                            Articles
+                        </template>
+                    </Chip>
+                    <Chip @click="tab = 'reviews'">
+                        <template #content>
+                            Reviews
+                        </template>
+                    </Chip>
+                </div>
+                <Btn title="Add New Product" />
+            </div>
+            <v-tabs-window class="py-4" v-model="tab">
+                <v-tabs-window-item value="products">
+                    <h3 class=" tw-font-extrabold">Products <small class=" tw-text-sm tw-text-slate-400" >(12)</small></h3>
+                </v-tabs-window-item>
+
+                <v-tabs-window-item value="articles">
+                    <h3 class=" tw-font-extrabold">Articles</h3>
+                </v-tabs-window-item>
+
+                <v-tabs-window-item value="reviews">
+                    <h3 class=" tw-font-extrabold">Reviews</h3>
+                </v-tabs-window-item>
+            </v-tabs-window>
         </div>
     </div>
 </template>
