@@ -21,7 +21,7 @@ const active = ref(false)
             <div class="tw-flex tw-flex-col tw-gap-1">
                 <span>{{ product.name }}</span>
                 <h5> <span class=" tw-text-sm tw-text-zinc-400">Starting Price </span> {{ product.price }} EGP</h5>
-                <h5 class="tw-flex tw-flex-col">
+                <h5 class="tw-flex" :class="$vuetify.display.smAndDown ? ' tw-flex-col' : 'tw-justify-start tw-gap-2'">
                     <span class=" tw-text-sm tw-text-zinc-400">Lot starts in </span>
                     <span class="tw-flex tw-flex-wrap tw-gap-2" >
                         <Chip class=" tw-text-xs">
