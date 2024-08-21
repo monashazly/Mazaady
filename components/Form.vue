@@ -39,15 +39,16 @@ const getPropertyOptions = (options) => {
     <v-form v-model="valid">
         <v-row class="tw-px-24 tw-py-3">
             <v-col cols="12">
-                <v-label lass="mb-1 text-body-2" text="Main Categories" /><span class="text-error">*</span> 
+                <v-label lass="mb-1 text-body-2" text="Main Categories" /><span class="text-error">*</span>
                 <VAutocomplete v-model="selectedMainCategory" :items="mainCategory" item-title="name" item-value="id"
-                    clearable return-object>
+                    clearable return-object :rules="[requiredValidator]">
                 </VAutocomplete>
             </v-col>
             <v-col cols="12">
                 <v-label lass="mb-1 text-body-2" text=" Subcategory" /><span class="text-error">*</span>
                 <VAutocomplete v-model="selectedSubCategory" :items="subCategories" item-title="name" item-value="id"
-                    clearable return-object>
+                    clearable return-object
+                    :rules="[requiredValidator]">
                 </VAutocomplete>
             </v-col>
             <v-col class="text-center" cols="12" v-if="pending && selectedSubCategory">
@@ -58,11 +59,8 @@ const getPropertyOptions = (options) => {
                 <VAutocomplete v-model="selectedOptions[property.id]" :items="getPropertyOptions(property.options)"
                     item-title="name" item-value="id" clearable return-object>
                 </VAutocomplete>
-                <v-text-field 
-                v-model="customValues[property.id]"
-                label="Please specify" 
-                placeholder="Enter custom value"     
-                v-if="selectedOptions[property.id]?.id === 'other'"/>
+                <v-text-field v-model="customValues[property.id]" label="Please specify"
+                    placeholder="Enter custom value" v-if="selectedOptions[property.id]?.id === 'other'" />
             </v-col>
         </v-row>
     </v-form>
