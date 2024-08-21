@@ -1,6 +1,8 @@
 <script setup>
+
 const mainCategory = ref([])
 const valid = ref()
+const review = ref(false)
 const selectedMainCategory = ref()
 const selectedSubCategory = ref()
 const selectedOptions = ref({});
@@ -35,17 +37,14 @@ const getPropertyOptions = (options) => {
     return [...options, { id: 'other', name: 'Other' }];
 }
 const submitForm = () => {
-    if (valid.value) {
-        Object.values(selectedOptions.value).forEach(item => {
-            console.log(item);
-        });
-    }
+    if (valid.value) review.value = true
 }
+
 
 const headers = computed(() => {
     const arr = []
     fetchedCategoryProperties.value?.data.forEach(property =>
-        arr.push({ title: property.name, value:  property.id.toString(), id: property.id })
+        arr.push({ title: property.name, value: property.id.toString(), id: property.id })
     )
 
     return [{ title: 'Main Category', value: 'main_category' }, { title: 'Subcategory', value: 'subcategory' }, ...arr]
@@ -58,9 +57,9 @@ const items = computed(() => {
         }
     ]
     Object.values(selectedOptions.value).forEach(item => {
-        if(item.parent)   arr[0][item.parent] = item.name
+        if (item.parent) arr[0][item.parent] = item.name
     })
-    Object.keys(customValues.value).forEach(key => {   
+    Object.keys(customValues.value).forEach(key => {
         arr[0][key] = customValues.value[key]
     });
     return arr
@@ -69,7 +68,7 @@ const items = computed(() => {
 </script>
 
 <template>
-    <v-form @submit.prevent="submitForm" v-model="valid">
+    <v-form @submit.prevent="submitForm" v-model="valid" v-if="!review">
         <v-row class="tw-px-24 tw-py-3">
             <v-col cols="12">
                 <v-label lass="mb-1 text-body-2" text="Main Categories" /><span class="text-error">*</span>
@@ -99,15 +98,19 @@ const items = computed(() => {
             <v-btn class="mt-3 mb-15" type="submit" color="primary">Submit</v-btn>
         </div>
     </v-form>
-    <!-- :items="serverItems" -->
-    <!-- v-model:items-per-page="itemsPerPage"  -->
-    <v-row class="tw-px-24">
+
+    <v-row class="tw-px-24 py-15" v-else>
         <v-col cols="12">
-            <v-data-table-server class="text-no-wrap" :headers="headers" item-value="name" items-length="1"
-                :items="items">
-                <template #bottom>
-                </template>
-            </v-data-table-server>
+            <v-card>
+                <v-data-table-server class="text-no-wrap tw-h-36 " :headers="headers" item-value="name" items-length="1"
+                    :items="items">
+                    <template #bottom>
+                    </template>
+                </v-data-table-server>
+            </v-card>
+        </v-col>
+        <v-col cols="12" class="text-center">
+            <v-btn class="mt-3 mb-15" color="primary" @click="review = false">Back</v-btn>
         </v-col>
     </v-row>
 </template>
