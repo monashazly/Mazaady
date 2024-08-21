@@ -22,6 +22,48 @@ const chipData = ref([
     }
 ])
 const tab = ref('products')
+const products = ref([
+    {
+        id: 1,
+        name: 'Six-piece clothing set (blouse - pants - hat and',
+        price: '1000',
+        image: '/item1.png',
+        days: '2',
+        hours: '10',
+        minutes: '20',
+        sale:false
+    },
+    {
+        id: 2,
+        name: 'Six-piece clothing set (blouse - pants - hat and',
+        price: '1000',
+        image: '/item2.png',
+        days: '2',
+        hours: '10',
+        minutes: '20',
+        sale:false
+    },
+    {
+        id: 3,
+        name: 'Six-piece clothing set (blouse - pants - hat and',
+        price: '1000',
+        image: '/item3.png',
+        days: '2',
+        hours: '10',
+        minutes: '20',
+        sale:true
+    },
+    {
+        id: 4,
+        name: 'Six-piece clothing set (blouse - pants - hat and',
+        price: '1000',
+        image: '/item4.png',
+        days: '2',
+        hours: '10',
+        minutes: '20',
+        sale:true
+    }
+])
 
 </script>
 
@@ -70,7 +112,7 @@ const tab = ref('products')
                 <div class="tw-mt-2  tw-bg-gradient-to-r tw-from-primary tw-to-secondary tw-p-4 tw-rounded-xl">
                     <div class="tw-bg-white tw-rounded-xl tw-flex tw-flex-col tw-items-center tw-py-4">
                         <NuxtImg src="/logo.png" width="80" height="30" />
-                        <h2>Hala Ahmed</h2>
+                        <h5>Hala Ahmed</h5>
                         <NuxtImg src="/QR.png" width="100" />
                         <small>Follow Us on Mazaady</small>
                     </div>
@@ -100,7 +142,9 @@ const tab = ref('products')
             </div>
             <v-tabs-window class="py-4" v-model="tab">
                 <v-tabs-window-item value="products">
-                    <h3 class=" tw-font-extrabold">Products <small class=" tw-text-sm tw-text-slate-400" >(12)</small></h3>
+                    <h3 class=" tw-font-extrabold">Products <small class=" tw-text-sm tw-text-slate-400">(12)</small>
+                    </h3>
+                    <Product v-for="product in products" :key="product.id" :product="product"/>
                 </v-tabs-window-item>
 
                 <v-tabs-window-item value="articles">

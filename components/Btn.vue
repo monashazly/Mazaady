@@ -15,6 +15,6 @@ const props = defineProps({
             <path d="M6.5 9H12.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M9.5 12V6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
-        {{ props.title }}
+        {{ title }}
     </button>
 </template>
