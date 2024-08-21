@@ -35,16 +35,35 @@ const getPropertyOptions = (options) => {
     return [...options, { id: 'other', name: 'Other' }];
 }
 const submitForm = () => {
-    if (valid.value) console.log('submit');
+    if (valid.value) {
+        Object.values(selectedOptions.value).forEach(item => {
+            console.log(item);
+        });
+    }
 }
 
 const headers = computed(() => {
     const arr = []
     fetchedCategoryProperties.value?.data.forEach(property =>
-        arr.push({ title: property.name, value: property.slug, id: property.id })
+        arr.push({ title: property.name, value:  property.id.toString(), id: property.id })
     )
 
-    return [ { title: 'Main Category', value: 'main_category' }, { title: 'Subcategory', value: 'subcategory' } , ...arr ]
+    return [{ title: 'Main Category', value: 'main_category' }, { title: 'Subcategory', value: 'subcategory' }, ...arr]
+})
+const items = computed(() => {
+    const arr = [
+        {
+            main_category: selectedMainCategory.value?.name,
+            subcategory: selectedSubCategory.value?.name
+        }
+    ]
+    Object.values(selectedOptions.value).forEach(item => {
+        if(item.parent)   arr[0][item.parent] = item.name
+    })
+    Object.keys(customValues.value).forEach(key => {   
+        arr[0][key] = customValues.value[key]
+    });
+    return arr
 })
 
 </script>
@@ -84,7 +103,8 @@ const headers = computed(() => {
     <!-- v-model:items-per-page="itemsPerPage"  -->
     <v-row class="tw-px-24">
         <v-col cols="12">
-            <v-data-table-server :headers="headers" item-value="name" items-length="1">
+            <v-data-table-server class="text-no-wrap" :headers="headers" item-value="name" items-length="1"
+                :items="items">
                 <template #bottom>
                 </template>
             </v-data-table-server>
