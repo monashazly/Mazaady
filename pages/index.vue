@@ -80,17 +80,17 @@ const tab = ref('products')
         <div class=" tw-bg-white tw-rounded-2xl tw-w-[63%] tw-p-6">
             <div class=" tw-flex tw-justify-between">
                 <div class=" tw-flex tw-justify-between tw-gap-3 tw-items-center">
-                    <Chip @click="tab = 'products'">
+                    <Chip @click="tab = 'products'" :bordered="true" :disabled="tab !== 'products'">
                         <template #content>
                             Products
                         </template>
                     </Chip>
-                    <Chip @click="tab = 'articles'">
+                    <Chip @click="tab = 'articles'" :bordered="true" :disabled="tab !== 'articles'">
                         <template #content>
                             Articles
                         </template>
                     </Chip>
-                    <Chip @click="tab = 'reviews'">
+                    <Chip @click="tab = 'reviews'" :bordered="true" :disabled="tab !== 'reviews'">
                         <template #content>
                             Reviews
                         </template>
