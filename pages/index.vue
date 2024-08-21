@@ -27,7 +27,7 @@ const products = ref([
         id: 1,
         name: 'Six-piece clothing set (blouse - pants - hat and',
         price: '1000',
-        image: '/item1.jpg',
+        image: '/item1.png',
         days: '2',
         hours: '10',
         minutes: '20',
@@ -37,7 +37,7 @@ const products = ref([
         id: 2,
         name: 'Jeep Car, new, used for only one time',
         price: '1000',
-        image: '/item2.jpg',
+        image: '/item2.png',
         days: '2',
         hours: '10',
         minutes: '20',
@@ -47,7 +47,7 @@ const products = ref([
         id: 3,
         name: 'Six-piece clothing set (blouse - pants - hat and',
         price: '1000',
-        image: '/item3.jpg',
+        image: '/item3.png',
         days: '2',
         hours: '10',
         minutes: '20',
@@ -57,7 +57,7 @@ const products = ref([
         id: 4,
         name: 'Jeep Car, new, used for only one time',
         price: '1000',
-        image: '/item4.jpg',
+        image: '/item4.png',
         days: '2',
         hours: '10',
         minutes: '20',
@@ -67,7 +67,7 @@ const products = ref([
         id: 5,
         name: 'Six-piece clothing set (blouse - pants - hat and',
         price: '1000',
-        image: '/item5.jpg',
+        image: '/item1.png',
         days: '2',
         hours: '10',
         minutes: '20',
@@ -77,7 +77,7 @@ const products = ref([
         id: 6,
         name: 'Six-piece clothing set (blouse - pants - hat and',
         price: '1000',
-        image: '/item1.jpg',
+        image: '/item2.png',
         days: '2',
         hours: '10',
         minutes: '20',
@@ -90,11 +90,11 @@ const products = ref([
 
 <template>
     <div class=" tw-flex "
-    :class="$vuetify.display.smAndDown ? ' tw-flex-col tw-p-5' : 'tw-justify-between tw-px-16 tw-py-6'" >
-        <div class="" :class="$vuetify.display.smAndDown ? ' tw-w-full tw-mb-3' : 'tw-w-[35%]'">
-            <div class=" tw-flex tw-flex-col tw-gap-2 tw-bg-white tw-rounded-2xl  tw-p-4">
-                <NuxtImg src="/profile.png" width="70" />
-                <h5>Hala Ahmed</h5>
+    :class="$vuetify.display.smAndDown ? ' tw-flex-col tw-p-5' : 'tw-justify-between tw-px-24   tw-py-12'" >
+        <div class="" :class="$vuetify.display.smAndDown ? ' tw-w-full tw-mb-3' : 'tw-w-[32%]'">
+            <div class=" tw-flex tw-flex-col tw-gap-2 tw-bg-white tw-rounded-3xl  tw-p-4">
+                <NuxtImg src="/profile.png" width="100" />
+                <h4>Hala Ahmed</h4>
                 <small class=" tw-text-slate-600">
                     I am Hala Ahmed, I am the owner of the local brand called Beauty which is for Mackeup and Skin Care.
                 </small>
@@ -116,7 +116,7 @@ const products = ref([
             </div>
             <div class=" tw-flex tw-flex-col tw-gap-2 tw-bg-white tw-rounded-2xl tw-p-4 tw-mt-5">
                 <div class="tw-flex tw-justify-between">
-                    <h5>QR Code</h5>
+                    <h4>QR Code</h4>
                     <div class="tw-flex tw-justify-between tw-gap-2 ">
                         <IconsEye />
                         <IconsShare />
@@ -141,8 +141,8 @@ const products = ref([
                 </div>
             </div>
         </div>
-        <div class=" tw-bg-white tw-rounded-2xl  tw-p-6" 
-        :class="$vuetify.display.smAndDown ? ' tw-w-full tw-mt-3' : 'tw-w-[63%]'">
+        <div class=" tw-bg-white tw-rounded-3xl  tw-p-6" 
+        :class="$vuetify.display.smAndDown ? ' tw-w-full tw-mt-3' : 'tw-w-[66%]'">
             <div class=" tw-flex tw-justify-between">
                 <div class=" tw-flex tw-justify-between tw-gap-3 tw-items-center">
                     <Chip @click="tab = 'products'" :bordered="true" :disabled="tab !== 'products'">
@@ -161,7 +161,7 @@ const products = ref([
                         </template>
                     </Chip>
                 </div>
-                <Btn title="Add New Product" v-if="$vuetify.display.smAndUp" />
+                <Btn title="Add Review" v-if="$vuetify.display.smAndUp" />
             </div>
             <v-tabs-window class="py-4" v-model="tab">
                 <v-tabs-window-item value="products">

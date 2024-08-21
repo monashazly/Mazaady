@@ -1,6 +1,6 @@
 <template>
     <div class=" tw-flex tw-justify-between tw-position-fixed tw-top-0 tw-bg-white tw-py-4  tw-items-center "
-    :class="$vuetify.display.mdAndDown ? 'tw-px-5' : 'tw-px-16'">
+    :class="$vuetify.display.mdAndDown ? 'tw-px-5' : ' tw-px-24'">
         <div class=" tw-flex tw-justify-start tw-gap-6 tw-text-stone-500 tw-items-center ">
             <IconsMenu v-if="$vuetify.display.smAndDown"/>
             <NuxtLink to="/">
