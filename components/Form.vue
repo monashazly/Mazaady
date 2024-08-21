@@ -5,8 +5,10 @@ const selectedMainCategory = ref()
 const selectedSubCategory = ref()
 const selectedOptions = ref({});
 const customValues = ref({});
+
 const privateKey = '3%o8i}_;3D4bF]G5@22r2)Et1&mLJ4?$@+16'
 const baseURL = 'https://staging.mazaady.com/api/v1'
+
 
 
 const { data } = await useFetch(`${baseURL}/get_all_cats`, {
@@ -32,11 +34,23 @@ const subCategories = computed(() => selectedMainCategory.value?.children)
 const getPropertyOptions = (options) => {
     return [...options, { id: 'other', name: 'Other' }];
 }
+const submitForm = () => {
+    if (valid.value) console.log('submit');
+}
+
+const headers = computed(() => {
+    const arr = []
+    fetchedCategoryProperties.value?.data.forEach(property =>
+        arr.push({ title: property.name, value: property.slug, id: property.id })
+    )
+
+    return [ { title: 'Main Category', value: 'main_category' }, { title: 'Subcategory', value: 'subcategory' } , ...arr ]
+})
 
 </script>
 
 <template>
-    <v-form v-model="valid">
+    <v-form @submit.prevent="submitForm" v-model="valid">
         <v-row class="tw-px-24 tw-py-3">
             <v-col cols="12">
                 <v-label lass="mb-1 text-body-2" text="Main Categories" /><span class="text-error">*</span>
@@ -47,8 +61,7 @@ const getPropertyOptions = (options) => {
             <v-col cols="12">
                 <v-label lass="mb-1 text-body-2" text=" Subcategory" /><span class="text-error">*</span>
                 <VAutocomplete v-model="selectedSubCategory" :items="subCategories" item-title="name" item-value="id"
-                    clearable return-object
-                    :rules="[requiredValidator]">
+                    clearable return-object :rules="[requiredValidator]">
                 </VAutocomplete>
             </v-col>
             <v-col class="text-center" cols="12" v-if="pending && selectedSubCategory">
@@ -63,5 +76,18 @@ const getPropertyOptions = (options) => {
                     placeholder="Enter custom value" v-if="selectedOptions[property.id]?.id === 'other'" />
             </v-col>
         </v-row>
+        <div class="text-center">
+            <v-btn class="mt-3 mb-15" type="submit" color="primary">Submit</v-btn>
+        </div>
     </v-form>
+    <!-- :items="serverItems" -->
+    <!-- v-model:items-per-page="itemsPerPage"  -->
+    <v-row class="tw-px-24">
+        <v-col cols="12">
+            <v-data-table-server :headers="headers" item-value="name" items-length="1">
+                <template #bottom>
+                </template>
+            </v-data-table-server>
+        </v-col>
+    </v-row>
 </template>
