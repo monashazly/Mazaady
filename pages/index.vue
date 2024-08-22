@@ -33,7 +33,7 @@ const chipData = ref([
     }
 ])
 const tab = ref('products')
-const products = ref < IProduct[] > ([
+const products = ref<IProduct[]>([
     {
         id: 1,
         name: 'Six-piece clothing set (blouse - pants - hat and',
@@ -153,27 +153,31 @@ const products = ref < IProduct[] > ([
         <div class=" tw-bg-white tw-rounded-3xl tw-p-6 tw-w-full tw-mt-3  md:tw-mt-0 md:tw-w-[66%] ">
             <div class=" tw-flex tw-justify-between">
                 <div class=" tw-flex tw-justify-between tw-gap-3 tw-items-center">
-                    <Chip class=" hover:tw-cursor-pointer" @click="tab = 'products'" :bordered="true" :disabled="tab !== 'products'">
+                    <Chip class=" hover:tw-cursor-pointer" @click="tab = 'products'" :bordered="true"
+                        :disabled="tab !== 'products'">
                         <template #content>
                             Products
                         </template>
                     </Chip>
-                    <Chip class=" hover:tw-cursor-pointer" @click="tab = 'articles'" :bordered="true" :disabled="tab !== 'articles'">
+                    <Chip class=" hover:tw-cursor-pointer" @click="tab = 'articles'" :bordered="true"
+                        :disabled="tab !== 'articles'">
                         <template #content>
                             Articles
                         </template>
                     </Chip>
-                    <Chip class=" hover:tw-cursor-pointer" @click="tab = 'reviews'" :bordered="true" :disabled="tab !== 'reviews'">
+                    <Chip class=" hover:tw-cursor-pointer" @click="tab = 'reviews'" :bordered="true"
+                        :disabled="tab !== 'reviews'">
                         <template #content>
                             Reviews
                         </template>
                     </Chip>
                 </div>
-                <Btn class="max-md:tw-hidden" title="Add Review"/>
+                <Btn class="max-md:tw-hidden" title="Add Review" />
             </div>
             <v-tabs-window class="py-4" v-model="tab">
                 <v-tabs-window-item value="products">
-                    <h3 class=" tw-text-3xl tw-font-extrabold">Products <small class=" tw-text-sm tw-text-slate-400">(12)</small>
+                    <h3 class=" tw-text-3xl tw-font-extrabold">Products <small
+                            class=" tw-text-sm tw-text-slate-400">(12)</small>
                     </h3>
                     <Product class="my-5" v-for="product in products" :key="product.id" :product="product" />
                 </v-tabs-window-item>

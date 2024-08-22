@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 
-const mainCategory = ref < Category[] > ([]);
+const mainCategory = ref<Category[]>([]);
 const valid = ref(false)
 const review = ref(false)
 const selectedMainCategory = ref<Category>()
@@ -37,25 +37,25 @@ type fetchedCategoryProperties = {
 };
 
 type Option = {
-    id : number | string,
-    name : string,
-    parent? : number,
-    slug? : string
+    id: number | string,
+    name: string,
+    parent?: number,
+    slug?: string
 }
 type SelectedOption = {
-  [key: number | string]: Option | undefined; 
+    [key: number | string]: Option | undefined;
 };
 
 type Header = {
-  title: string;
-  value: string;
+    title: string;
+    value: string;
 
 };
 type Item = {
-    [key: number | string]: string | undefined | Option; 
+    [key: number | string]: string | undefined | Option;
 };
 
-const { data } = await useFetch < MainCategoryResponse > (`${baseURL}/get_all_cats`, {
+const { data } = await useFetch<MainCategoryResponse>(`${baseURL}/get_all_cats`, {
     headers: {
         'Private-Key': privateKey
     }
@@ -78,7 +78,7 @@ const { data: fetchedCategoryProperties, pending } = await useFetch<fetchedCateg
 const subCategories = computed(() => selectedMainCategory.value?.children)
 
 const getPropertyOptions = (options: Option[] | undefined): Option[] => {
-  return [...(options ?? []), { id: 'other', name: 'Other' }];
+    return [...(options ?? []), { id: 'other', name: 'Other' }];
 };
 
 const submitForm = () => {
@@ -87,7 +87,7 @@ const submitForm = () => {
 
 
 const headers = computed<Header[]>(() => {
-    const arr:Header[] = []
+    const arr: Header[] = []
     fetchedCategoryProperties.value?.data.forEach(property =>
         arr.push({ title: property.name, value: property.id.toString() })
     )
@@ -95,7 +95,7 @@ const headers = computed<Header[]>(() => {
     return [{ title: 'Main Category', value: 'main_category' }, { title: 'Subcategory', value: 'subcategory' }, ...arr]
 })
 const items = computed<Item[]>(() => {
-    const arr:Item[]  = [
+    const arr: Item[] = [
         {
             main_category: selectedMainCategory.value?.name,
             subcategory: selectedSubCategory.value?.name
@@ -148,7 +148,7 @@ const items = computed<Item[]>(() => {
         <v-col cols="12">
             <v-card>
                 <v-data-table-server class="text-no-wrap tw-h-36 " :headers="headers" item-value="name" items-length="1"
-                :items="items">
+                    :items="items">
                     <template #bottom>
                     </template>
                 </v-data-table-server>
