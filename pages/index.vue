@@ -1,8 +1,19 @@
-<script setup>
+<script setup lang="ts">
 import UserIcon from "~/components/icons/UserIcon.vue"
 import TwoUsers from "~/components/icons/TwoUsers.vue"
 import Star from "~/components/icons/Star.vue"
 
+type IProduct = {
+    id: number,
+    name: string,
+    price: number,
+    image: string,
+    days: number,
+    hours: number,
+    minutes: number,
+    sale: boolean,
+
+}
 
 const chipData = ref([
     {
@@ -22,75 +33,74 @@ const chipData = ref([
     }
 ])
 const tab = ref('products')
-const products = ref([
+const products = ref < IProduct[] > ([
     {
         id: 1,
         name: 'Six-piece clothing set (blouse - pants - hat and',
-        price: '1000',
+        price: 1000,
         image: '/item1.png',
-        days: '2',
-        hours: '10',
-        minutes: '20',
-        sale:false
+        days: 2,
+        hours: 10,
+        minutes: 20,
+        sale: false
     },
     {
         id: 2,
         name: 'Jeep Car, new, used for only one time',
-        price: '1000',
+        price: 1000,
         image: '/item2.png',
-        days: '2',
-        hours: '10',
-        minutes: '20',
-        sale:false
+        days: 2,
+        hours: 10,
+        minutes: 20,
+        sale: false
     },
     {
         id: 3,
         name: 'Six-piece clothing set (blouse - pants - hat and',
-        price: '1000',
+        price: 1000,
         image: '/item3.png',
-        days: '2',
-        hours: '10',
-        minutes: '20',
-        sale:true
+        days: 2,
+        hours: 10,
+        minutes: 20,
+        sale: true
     },
     {
         id: 4,
         name: 'Jeep Car, new, used for only one time',
-        price: '1000',
+        price: 1000,
         image: '/item4.png',
-        days: '2',
-        hours: '10',
-        minutes: '20',
-        sale:true
+        days: 2,
+        hours: 10,
+        minutes: 20,
+        sale: true
     },
     {
         id: 5,
         name: 'Six-piece clothing set (blouse - pants - hat and',
-        price: '1000',
+        price: 1000,
         image: '/item1.png',
-        days: '2',
-        hours: '10',
-        minutes: '20',
-        sale:true
+        days: 2,
+        hours: 10,
+        minutes: 20,
+        sale: true
     },
     {
         id: 6,
         name: 'Six-piece clothing set (blouse - pants - hat and',
-        price: '1000',
+        price: 1000,
         image: '/item2.png',
-        days: '2',
-        hours: '10',
-        minutes: '20',
-        sale:false
+        days: 2,
+        hours: 10,
+        minutes: 20,
+        sale: false
     },
-
 ])
 
 </script>
 
 <template>
     <div class=" tw-flex "
-    :class="$vuetify.display.smAndDown ? ' tw-flex-col tw-p-5' : 'tw-justify-between tw-px-24   tw-py-12'" >
+        :class="$vuetify.display.smAndDown ? ' tw-flex-col tw-p-5' : 'tw-justify-between tw-px-24   tw-py-12'">
         <div class="" :class="$vuetify.display.smAndDown ? ' tw-w-full tw-mb-3' : 'tw-w-[32%]'">
             <div class=" tw-flex tw-flex-col tw-gap-2 tw-bg-white tw-rounded-3xl  tw-p-4">
                 <NuxtImg src="/profile.png" width="100" />
@@ -141,8 +151,8 @@ const products = ref([
                 </div>
             </div>
         </div>
-        <div class=" tw-bg-white tw-rounded-3xl  tw-p-6" 
-        :class="$vuetify.display.smAndDown ? ' tw-w-full tw-mt-3' : 'tw-w-[66%]'">
+        <div class=" tw-bg-white tw-rounded-3xl  tw-p-6"
+            :class="$vuetify.display.smAndDown ? ' tw-w-full tw-mt-3' : 'tw-w-[66%]'">
             <div class=" tw-flex tw-justify-between">
                 <div class=" tw-flex tw-justify-between tw-gap-3 tw-items-center">
                     <Chip @click="tab = 'products'" :bordered="true" :disabled="tab !== 'products'">
@@ -167,7 +177,7 @@ const products = ref([
                 <v-tabs-window-item value="products">
                     <h3 class=" tw-font-extrabold">Products <small class=" tw-text-sm tw-text-slate-400">(12)</small>
                     </h3>
-                    <Product class="my-5" v-for="product in products" :key="product.id" :product="product"/>
+                    <Product class="my-5" v-for="product in products" :key="product.id" :product="product" />
                 </v-tabs-window-item>
 
                 <v-tabs-window-item value="articles">

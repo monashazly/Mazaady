@@ -1,7 +1,7 @@
 <script setup>
 
 const mainCategory = ref([])
-const valid = ref()
+const valid = ref(false)
 const review = ref(false)
 const selectedMainCategory = ref()
 const selectedSubCategory = ref()
@@ -10,8 +10,6 @@ const customValues = ref({});
 
 const privateKey = '3%o8i}_;3D4bF]G5@22r2)Et1&mLJ4?$@+16'
 const baseURL = 'https://staging.mazaady.com/api/v1'
-
-
 
 const { data } = await useFetch(`${baseURL}/get_all_cats`, {
     headers: {

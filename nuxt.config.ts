@@ -13,7 +13,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "vuetify-nuxt-module"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "vuetify-nuxt-module" ,  '@nuxt/test-utils/module'],
   css:['~/assets/main.css'],
 })
 

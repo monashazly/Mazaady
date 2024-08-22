@@ -1,3 +1,5 @@
 <template>
-    <Form />
+    <Suspense>
+        <Form />
+    </Suspense>
 </template>
