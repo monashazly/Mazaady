@@ -99,9 +99,8 @@ const products = ref < IProduct[] > ([
 </script>
 
 <template>
-    <div class=" tw-flex "
-        :class="$vuetify.display.smAndDown ? ' tw-flex-col tw-p-5' : 'tw-justify-between tw-px-24   tw-py-12'">
-        <div class="" :class="$vuetify.display.smAndDown ? ' tw-w-full tw-mb-3' : 'tw-w-[32%]'">
+    <div class=" tw-flex tw-flex-col tw-p-5 md:tw-flex-row md:tw-justify-between md:tw-px-24 md:tw-py-12 ">
+        <div class=" md:tw-w-[32%]  tw-w-full tw-mb-3 ">
             <div class=" tw-flex tw-flex-col tw-gap-2 tw-bg-white tw-rounded-3xl  tw-p-4">
                 <NuxtImg src="/profile.png" width="100" />
                 <h4>Hala Ahmed</h4>
@@ -151,8 +150,7 @@ const products = ref < IProduct[] > ([
                 </div>
             </div>
         </div>
-        <div class=" tw-bg-white tw-rounded-3xl  tw-p-6"
-            :class="$vuetify.display.smAndDown ? ' tw-w-full tw-mt-3' : 'tw-w-[66%]'">
+        <div class=" tw-bg-white tw-rounded-3xl tw-p-6 tw-w-full tw-mt-3  md:tw-mt-0 md:tw-w-[66%] ">
             <div class=" tw-flex tw-justify-between">
                 <div class=" tw-flex tw-justify-between tw-gap-3 tw-items-center">
                     <Chip @click="tab = 'products'" :bordered="true" :disabled="tab !== 'products'">
@@ -171,7 +169,7 @@ const products = ref < IProduct[] > ([
                         </template>
                     </Chip>
                 </div>
-                <Btn title="Add Review" v-if="$vuetify.display.smAndUp" />
+                <Btn class="max-md:tw-hidden" title="Add Review"/>
             </div>
             <v-tabs-window class="py-4" v-model="tab">
                 <v-tabs-window-item value="products">

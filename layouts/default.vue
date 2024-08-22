@@ -1,18 +1,17 @@
 <template>
-    <div class=" tw-flex tw-justify-between tw-position-fixed tw-top-0 tw-bg-white tw-py-4  tw-items-center "
-    :class="$vuetify.display.smAndDown ? 'tw-px-5' : ' tw-px-24'">
+    <div class="tw-px-5 md:tw-px-24 tw-flex tw-justify-between tw-position-fixed tw-top-0 tw-bg-white tw-py-4  tw-items-center ">
         <div class=" tw-flex tw-justify-start tw-gap-6 tw-text-stone-500 tw-items-center ">
-            <IconsMenu v-if="$vuetify.display.smAndDown"/>
+            <IconsMenu class=" md:tw-hidden"/>
             <NuxtLink to="/">
                 <NuxtImg src="/logo.png" width="90" />
             </NuxtLink>
-            <NuxtLink to="/" exact-active-class="active-link" v-if="$vuetify.display.mdAndUp">
+            <NuxtLink class=" tw-hidden md:tw-block" to="/" exact-active-class="active-link">
                 Home
             </NuxtLink>
-            <NuxtLink to="/blogs" exact-active-class="active-link" v-if="$vuetify.display.mdAndUp">
+            <NuxtLink class=" tw-hidden md:tw-block" to="/blogs" exact-active-class="active-link">
                 Blog
             </NuxtLink>
-            <NuxtLink exact-active-class="active-link" v-if="$vuetify.display.mdAndUp">
+            <NuxtLink  class=" tw-hidden md:tw-block" exact-active-class="active-link">
                 Gifts
             </NuxtLink>
         </div>
@@ -37,7 +36,7 @@
                     d="M15.02 19.06C15.02 20.71 13.67 22.06 12.02 22.06C11.2 22.06 10.44 21.72 9.9 21.18C9.36 20.64 9.02 19.88 9.02 19.06"
                     stroke="#333333" stroke-width="1.5" stroke-miterlimit="10" />
             </svg>
-            <Btn title="Add New Product" v-if="$vuetify.display.mdAndUp"/>
+            <Btn class=" max-md:tw-hidden " title="Add New Product"/>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
