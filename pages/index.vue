@@ -153,17 +153,17 @@ const products = ref < IProduct[] > ([
         <div class=" tw-bg-white tw-rounded-3xl tw-p-6 tw-w-full tw-mt-3  md:tw-mt-0 md:tw-w-[66%] ">
             <div class=" tw-flex tw-justify-between">
                 <div class=" tw-flex tw-justify-between tw-gap-3 tw-items-center">
-                    <Chip @click="tab = 'products'" :bordered="true" :disabled="tab !== 'products'">
+                    <Chip class=" hover:tw-cursor-pointer" @click="tab = 'products'" :bordered="true" :disabled="tab !== 'products'">
                         <template #content>
                             Products
                         </template>
                     </Chip>
-                    <Chip @click="tab = 'articles'" :bordered="true" :disabled="tab !== 'articles'">
+                    <Chip class=" hover:tw-cursor-pointer" @click="tab = 'articles'" :bordered="true" :disabled="tab !== 'articles'">
                         <template #content>
                             Articles
                         </template>
                     </Chip>
-                    <Chip @click="tab = 'reviews'" :bordered="true" :disabled="tab !== 'reviews'">
+                    <Chip class=" hover:tw-cursor-pointer" @click="tab = 'reviews'" :bordered="true" :disabled="tab !== 'reviews'">
                         <template #content>
                             Reviews
                         </template>
