@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     },
   },
   modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "vuetify-nuxt-module" ,  '@nuxt/test-utils/module'],
-  css:['~/assets/main.css'],
+  css:['@/assets/main.css'],
 })
 
 
