@@ -1,9 +1,20 @@
-<script setup>
-const props = defineProps({
-    product: {
-        type: Object
-    }
-})
+<script lang="ts"  setup>
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  days: number;
+  hours: number;
+  minutes: number;
+  sale: boolean;
+}
+
+const props = defineProps<{
+  product: Product;
+}>();
+
 const active = ref(false)
 </script>
 
