@@ -114,7 +114,7 @@ const items = computed<Item[]>(() => {
 
 <template>
     <v-form @submit.prevent="submitForm" v-model="valid" v-if="!review">
-        <v-row class="tw-px-24 tw-py-3">
+        <v-row class="md:tw-px-24 tw-py-3">
             <v-col cols="12">
                 <v-label lass="mb-1 text-body-2" text="Main Categories" /><span class="text-error">*</span>
                 <VAutocomplete v-model="selectedMainCategory" :items="mainCategory" item-title="name" item-value="id"
@@ -144,7 +144,7 @@ const items = computed<Item[]>(() => {
         </div>
     </v-form>
 
-    <v-row class="tw-px-24 py-15" v-else>
+    <v-row class="md:tw-px-24 py-15" v-else>
         <v-col cols="12">
             <v-card>
                 <v-data-table-server class="text-no-wrap tw-h-36 " :headers="headers" item-value="name" items-length="1"
