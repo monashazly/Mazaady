@@ -103,7 +103,7 @@ const products = ref < IProduct[] > ([
         <div class=" md:tw-w-[32%]  tw-w-full tw-mb-3 ">
             <div class=" tw-flex tw-flex-col tw-gap-2 tw-bg-white tw-rounded-3xl  tw-p-4">
                 <NuxtImg src="/profile.png" width="100" />
-                <h4>Hala Ahmed</h4>
+                <h4 class="tw-text-2xl">Hala Ahmed</h4>
                 <small class=" tw-text-slate-600">
                     I am Hala Ahmed, I am the owner of the local brand called Beauty which is for Mackeup and Skin Care.
                 </small>
@@ -125,7 +125,7 @@ const products = ref < IProduct[] > ([
             </div>
             <div class=" tw-flex tw-flex-col tw-gap-2 tw-bg-white tw-rounded-2xl tw-p-4 tw-mt-5">
                 <div class="tw-flex tw-justify-between">
-                    <h4>QR Code</h4>
+                    <h4 class="tw-text-2xl">QR Code</h4>
                     <div class="tw-flex tw-justify-between tw-gap-2 ">
                         <IconsEye />
                         <IconsShare />
@@ -143,7 +143,7 @@ const products = ref < IProduct[] > ([
                 <div class="tw-mt-2  tw-bg-gradient-to-r tw-from-primary tw-to-secondary tw-p-4 tw-rounded-xl">
                     <div class="tw-bg-white tw-rounded-xl tw-flex tw-flex-col tw-items-center tw-py-4">
                         <NuxtImg src="/logo.png" width="80" height="30" />
-                        <h5>Hala Ahmed</h5>
+                        <h5 class="tw-text-xl">Hala Ahmed</h5>
                         <NuxtImg src="/QR.png" width="100" />
                         <small>Follow Us on Mazaady</small>
                     </div>
