@@ -108,7 +108,7 @@ const products = ref<IProduct[]>([
                     I am Hala Ahmed, I am the owner of the local brand called Beauty which is for Mackeup and Skin Care.
                 </small>
                 <div class="tw-flex tw-justify-between">
-                    <Chip v-for="(data, index) in chipData" :key="index">
+                    <Chip class=" max-xs:tw-text-xs  tw-text-sm max-sm:tw-px-1 sm:tw-p-1 sm:tw-px-3 tw-w-[32%]" v-for="(data, index) in chipData" :key="index">
                         <template #content>
                             <div class="tw-flex tw-justify-start tw-gap-2 tw-items-center">
                                 <component :is="data.icon" />
@@ -132,7 +132,7 @@ const products = ref<IProduct[]>([
                         <IconsDocument />
                     </div>
                 </div>
-                <Chip>
+                <Chip class="tw-p-1 tw-px-4">
                     <template #content>
                         <div class="tw-flex tw-justify-start tw-gap-2 tw-items-center">
                             <IconsDocument />
@@ -153,19 +153,19 @@ const products = ref<IProduct[]>([
         <div class=" tw-bg-white tw-rounded-3xl tw-p-6 tw-w-full tw-mt-3  md:tw-mt-0 md:tw-w-[66%] ">
             <div class=" tw-flex tw-justify-between">
                 <div class=" tw-flex tw-justify-between tw-gap-3 tw-items-center">
-                    <Chip class=" hover:tw-cursor-pointer" @click="tab = 'products'" :bordered="true"
+                    <Chip class=" hover:tw-cursor-pointer tw-p-1 tw-px-4" @click="tab = 'products'" :bordered="true"
                         :disabled="tab !== 'products'">
                         <template #content>
                             Products
                         </template>
                     </Chip>
-                    <Chip class=" hover:tw-cursor-pointer" @click="tab = 'articles'" :bordered="true"
+                    <Chip class=" hover:tw-cursor-pointer tw-p-1 tw-px-4" @click="tab = 'articles'" :bordered="true"
                         :disabled="tab !== 'articles'">
                         <template #content>
                             Articles
                         </template>
                     </Chip>
-                    <Chip class=" hover:tw-cursor-pointer" @click="tab = 'reviews'" :bordered="true"
+                    <Chip class=" hover:tw-cursor-pointer tw-p-1 tw-px-4" @click="tab = 'reviews'" :bordered="true"
                         :disabled="tab !== 'reviews'">
                         <template #content>
                             Reviews
