@@ -150,7 +150,7 @@ const products = ref<IProduct[]>([
                 </div>
             </div>
         </div>
-        <div class=" tw-bg-white tw-rounded-3xl tw-p-6 tw-w-full tw-mt-3  md:tw-mt-0 md:tw-w-[66%] ">
+        <div class=" tw-bg-white tw-rounded-3xl max-sm:tw-p-3 tw-p-6 tw-w-full tw-mt-3  md:tw-mt-0 md:tw-w-[66%] ">
             <div class=" tw-flex tw-justify-between">
                 <div class=" tw-flex tw-justify-between tw-gap-3 tw-items-center">
                     <Chip class=" hover:tw-cursor-pointer tw-p-1 tw-px-4" @click="tab = 'products'" :bordered="true"

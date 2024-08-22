@@ -23,7 +23,7 @@ const active = ref(false)
         <div
             class=" tw-relative tw-rounded-[19px] tw-overflow-hidden  tw-h-fit tw-max-h-[150px] tw-w-[33%] md:tw-w-[20%] ">
             <NuxtImg :src="product.image" class="tw-w-full" />
-            <div class=" tw-text-xs tw-text-nowrap tw-absolute tw-bottom-0 tw-right-0 tw-text-white tw-px-4 tw-py-2 tw-rounded-tl-full tw-rounded-tr-none tw-rounded-bl-none tw-rounded-br-[19px]"
+            <div class=" tw-text-xs text-no-wrap tw-absolute tw-bottom-0 tw-right-0 tw-text-white tw-px-4 tw-py-2 tw-rounded-tl-full tw-rounded-tr-none tw-rounded-bl-none tw-rounded-br-[19px]"
                 :class="product.sale ? 'tw-bg-secondary' : 'tw-bg-primary'">
                 {{ product.sale ? 'Hot Sale' : 'Live Auction' }}
             </div>
