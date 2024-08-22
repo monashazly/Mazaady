@@ -173,7 +173,7 @@ const products = ref < IProduct[] > ([
             </div>
             <v-tabs-window class="py-4" v-model="tab">
                 <v-tabs-window-item value="products">
-                    <h3 class=" tw-font-extrabold">Products <small class=" tw-text-sm tw-text-slate-400">(12)</small>
+                    <h3 class=" tw-text-3xl tw-font-extrabold">Products <small class=" tw-text-sm tw-text-slate-400">(12)</small>
                     </h3>
                     <Product class="my-5" v-for="product in products" :key="product.id" :product="product" />
                 </v-tabs-window-item>
@@ -183,7 +183,7 @@ const products = ref < IProduct[] > ([
                 </v-tabs-window-item>
 
                 <v-tabs-window-item value="reviews">
-                    <h3 class=" tw-font-extrabold">Reviews</h3>
+                    <h3 class=" tw-text-3xl tw-font-extrabold">Reviews</h3>
                 </v-tabs-window-item>
             </v-tabs-window>
         </div>
